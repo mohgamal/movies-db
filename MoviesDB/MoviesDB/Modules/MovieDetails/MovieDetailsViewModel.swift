@@ -35,12 +35,13 @@ class MovieDetailsViewModel {
         Publishers.Zip3(movieDetailsPublisher, similarMoviesPublisher, creditsPublisher)
             .receive(on: DispatchQueue.main)
             .sink { [weak self] completion in
-                self?.isLoading = false
+                guard let self else { return }
+                self.isLoading = false
                 if case .failure(let error) = completion {
-                    self?.errorMessage = "Failed to fetch movie details: \(error.localizedDescription)"
+                    self.errorMessage = "Failed to fetch movie details: \(error.localizedDescription)"
                 }
             } receiveValue: { [weak self] movieDetails, similarMovies, credits in
-                guard let self = self else { return }
+                guard let self else { return }
                 self.movieDetails = movieDetails
                 self.similarMovies = Array(similarMovies.results.prefix(5))
                 self.credits = credits

@@ -84,10 +84,11 @@ class MoviesListViewController: UIViewController {
         viewModel.$isLoading
             .receive(on: DispatchQueue.main)
             .sink { [weak self] isLoading in
+                guard let self else { return }
                 if isLoading {
-                    self?.loadingIndicator.startAnimating()
+                    self.loadingIndicator.startAnimating()
                 } else {
-                    self?.loadingIndicator.stopAnimating()
+                    self.loadingIndicator.stopAnimating()
                 }
             }
             .store(in: &cancellables)
@@ -95,8 +96,9 @@ class MoviesListViewController: UIViewController {
         viewModel.$movies
             .receive(on: DispatchQueue.main)
             .sink { [weak self] _ in
+                guard let self else { return }
                 // Reload table view whenever movies list is updated
-                self?.tableView.reloadData()
+                self.tableView.reloadData()
             }
             .store(in: &cancellables)
         
@@ -104,7 +106,8 @@ class MoviesListViewController: UIViewController {
             .compactMap { $0 }
             .receive(on: DispatchQueue.main)
             .sink { [weak self] errorMessage in
-                self?.showError(errorMessage)
+                guard let self else { return }
+                self.showError(errorMessage)
             }
             .store(in: &cancellables)
     }

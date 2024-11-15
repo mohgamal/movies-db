@@ -28,12 +28,14 @@ class MoviesViewModel {
         isLoading = true  // Start loading
         apiService.fetchPopularMovies()
             .sink { [weak self] completion in
-                self?.isLoading = false  // Stop loading on completion
+                guard let self else { return }
+                self.isLoading = false  // Stop loading on completion
                 if case .failure(let error) = completion {
-                    self?.errorMessage = "Failed to fetch movies: \(error.localizedDescription)"
+                    self.errorMessage = "Failed to fetch movies: \(error.localizedDescription)"
                 }
             } receiveValue: { [weak self] movies in
-                self?.movies = movies.results
+                guard let self else { return }
+                self.movies = movies.results
             }
             .store(in: &cancellables)
     }
@@ -43,12 +45,14 @@ class MoviesViewModel {
         isLoading = true
         apiService.searchMovies(query: query)
             .sink { [weak self] completion in
-                self?.isLoading = false
+                guard let self else { return }
+                self.isLoading = false
                 if case .failure(let error) = completion {
-                    self?.errorMessage = "Failed to search movies: \(error.localizedDescription)"
+                    self.errorMessage = "Failed to search movies: \(error.localizedDescription)"
                 }
             } receiveValue: { [weak self] movies in
-                self?.movies = movies.results
+                guard let self else { return }
+                self.movies = movies.results
             }
             .store(in: &cancellables)
     }

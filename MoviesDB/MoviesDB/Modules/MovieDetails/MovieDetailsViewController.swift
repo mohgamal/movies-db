@@ -53,7 +53,7 @@ class MovieDetailsViewController: UIViewController {
         scrollView.addSubview(contentView)
 
         NSLayoutConstraint.activate([
-            scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            scrollView.topAnchor.constraint(equalTo: view.topAnchor),
             scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
@@ -133,7 +133,9 @@ class MovieDetailsViewController: UIViewController {
             .compactMap { $0 }
             .receive(on: DispatchQueue.main)
             .sink { [weak self] details in
-                self?.movieDetailsView.configure(with: details)
+                guard let self else { return }
+                self.title = details.title // Set the movie title as the screen title
+                self.movieDetailsView.configure(with: details)
             }
             .store(in: &cancellables)
 
@@ -141,7 +143,8 @@ class MovieDetailsViewController: UIViewController {
         viewModel.$similarMovies
             .receive(on: DispatchQueue.main)
             .sink { [weak self] movies in
-                self?.similarMoviesView.configure(with: movies)
+                guard let self else { return }
+                self.similarMoviesView.configure(with: movies)
             }
             .store(in: &cancellables)
 
@@ -150,7 +153,8 @@ class MovieDetailsViewController: UIViewController {
             .compactMap { $0 }
             .receive(on: DispatchQueue.main)
             .sink { [weak self] credits in
-                self?.movieCreditsView.configure(with: credits)
+                guard let self else { return }
+                self.movieCreditsView.configure(with: credits)
             }
             .store(in: &cancellables)
 
@@ -158,10 +162,11 @@ class MovieDetailsViewController: UIViewController {
         viewModel.$isLoading
             .receive(on: DispatchQueue.main)
             .sink { [weak self] isLoading in
+                guard let self else { return }
                 if isLoading {
-                    self?.loadingIndicator.startAnimating()
+                    self.loadingIndicator.startAnimating()
                 } else {
-                    self?.loadingIndicator.stopAnimating()
+                    self.loadingIndicator.stopAnimating()
                 }
             }
             .store(in: &cancellables)
@@ -171,7 +176,8 @@ class MovieDetailsViewController: UIViewController {
             .compactMap { $0 }
             .receive(on: DispatchQueue.main)
             .sink { [weak self] errorMessage in
-                self?.showErrorAlert(message: errorMessage)
+                guard let self else { return }
+                self.showErrorAlert(message: errorMessage)
             }
             .store(in: &cancellables)
     }
