@@ -25,7 +25,7 @@ A simple iOS app to browse popular movies and search for specific movies using T
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/2d20b137-bbc9-4b13-aa38-0b4b76ad990d" width="45%" alt="Screenshot 1">
-  <img src="https://github.com/user-attachments/assets/fc88e9f2-5100-4d81-ae66-610d334dacd1" width="45%" alt="Screenshot 2">
+  <img src="https://github.com/user-attachments/assets/3472e998-c2b9-4298-a03b-b782edb96063" width="45%" alt="Screenshot 2">
 </p>
 
 ---
