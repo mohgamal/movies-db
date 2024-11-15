@@ -72,13 +72,13 @@ MoviesDB
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/mohgamal/moviesdb.git
-   cd MoviesDB
+   git clone git@github.com:mohgamal/movies-db.git
+   cd movies-db
    ```
 
 2. Open the project in Xcode:
    ```bash
-   open MoviesDB.xcodeproj
+   open movies-db.xcodeproj
    ```
 
 3. Install dependencies (if any).
