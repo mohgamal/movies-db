@@ -10,22 +10,16 @@ import UIKit
 class MovieDetailsCoordinator: Coordinator {
     var childCoordinators = [Coordinator]()
     var navigationController: UINavigationController
-    private let movie: Movie
+    private let movieId: Int
 
-    init(navigationController: UINavigationController, movie: Movie) {
+    init(navigationController: UINavigationController, movieId: Int) {
         self.navigationController = navigationController
-        self.movie = movie
+        self.movieId = movieId
     }
 
     func start() {
-//        let movieDetailsViewModel = MovieDetailsViewModel(movie: movie)
-//        let movieDetailsVC = MovieDetailsViewController(viewModel: movieDetailsViewModel)
-//        movieDetailsVC.coordinator = self
-//        navigationController.pushViewController(movieDetailsVC, animated: true)
-    }
-    
-    func didFinish() {
-        // Optionally, remove this coordinator from its parent
-        // When exiting the details screen
+        let movieDetailsViewModel = MovieDetailsViewModel(movieId: movieId)
+        let movieDetailsVC = MovieDetailsViewController(viewModel: movieDetailsViewModel)
+        navigationController.pushViewController(movieDetailsVC, animated: true)
     }
 }

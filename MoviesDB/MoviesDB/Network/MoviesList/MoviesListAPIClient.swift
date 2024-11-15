@@ -8,14 +8,9 @@
 import Combine
 import Foundation
 
-class APIClient: APIServiceProtocol {
+class MoviesListAPIClient: MoviesListServiceProtocol {
     func fetchPopularMovies() -> AnyPublisher<MovieResponse, Error> {
         let url = MoviesEndpoint.popularMovies.url
-        return fetchData(from: url)
-    }
-    
-    func fetchMovieDetail(movieId: Int) -> AnyPublisher<Movie, Error> {
-        let url = MoviesEndpoint.movieDetail(movieId: movieId).url
         return fetchData(from: url)
     }
     

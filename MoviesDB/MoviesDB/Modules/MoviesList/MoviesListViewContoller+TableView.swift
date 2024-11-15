@@ -38,6 +38,6 @@ extension MoviesListViewController: UITableViewDataSource, UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let movie = viewModel.movies[indexPath.row]
-        viewModel.fetchMovieDetail(movieId: movie.id)
+        coordinator?.showMovieDetails(for: movie.id)
     }
 }

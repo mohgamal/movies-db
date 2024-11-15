@@ -22,8 +22,8 @@ class MoviesCoordinator: Coordinator {
         navigationController.pushViewController(moviesListVC, animated: true)
     }
 
-    func showMovieDetails(for movie: Movie) {
-        let movieDetailsCoordinator = MovieDetailsCoordinator(navigationController: navigationController, movie: movie)
+    func showMovieDetails(for movieId: Int) {
+        let movieDetailsCoordinator = MovieDetailsCoordinator(navigationController: navigationController, movieId: movieId)
         addChildCoordinator(movieDetailsCoordinator)
         movieDetailsCoordinator.start()
     }

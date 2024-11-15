@@ -59,6 +59,7 @@ class MovieTableViewCell: UITableViewCell {
     
     // MARK: - Setup UI
     private func setupViews() {
+        selectionStyle = .none
         contentView.addSubview(movieImageView)
         contentView.addSubview(titleLabel)
         contentView.addSubview(releaseDateLabel)

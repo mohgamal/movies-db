@@ -15,11 +15,11 @@ class MoviesViewModel {
     @Published var isLoading: Bool = false
     @Published var selectedMovie: Movie?
 
-    private let apiService: APIServiceProtocol
+    private let apiService: MoviesListServiceProtocol
     private var cancellables = Set<AnyCancellable>()
 
     // Injecting the APIServiceProtocol allows for easy testing and mocking
-    init(apiService: APIServiceProtocol = APIClient()) {
+    init(apiService: MoviesListServiceProtocol = MoviesListAPIClient()) {
         self.apiService = apiService
     }
     
@@ -34,21 +34,6 @@ class MoviesViewModel {
                 }
             } receiveValue: { [weak self] movies in
                 self?.movies = movies.results
-            }
-            .store(in: &cancellables)
-    }
-    
-    // Fetch details for a specific movie by its ID
-    func fetchMovieDetail(movieId: Int) {
-        isLoading = true
-        apiService.fetchMovieDetail(movieId: movieId)
-            .sink { [weak self] completion in
-                self?.isLoading = false
-                if case .failure(let error) = completion {
-                    self?.errorMessage = "Failed to fetch movie details: \(error.localizedDescription)"
-                }
-            } receiveValue: { [weak self] movie in
-                self?.selectedMovie = movie
             }
             .store(in: &cancellables)
     }
