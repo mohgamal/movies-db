@@ -26,6 +26,8 @@
 		9A2676832CE5FE21003967FD /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2676822CE5FE21003967FD /* MovieCell.swift */; };
 		9A2676852CE60342003967FD /* AppEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2676842CE60342003967FD /* AppEnvironment.swift */; };
 		9A2676882CE6036D003967FD /* MoviesEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2676872CE6036D003967FD /* MoviesEndpoint.swift */; };
+		9A26768A2CE7246A003967FD /* MoviesListViewController+SearcBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2676892CE7246A003967FD /* MoviesListViewController+SearcBar.swift */; };
+		9A26768C2CE724C2003967FD /* MoviesListViewContoller+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A26768B2CE724C2003967FD /* MoviesListViewContoller+TableView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +71,8 @@
 		9A2676822CE5FE21003967FD /* MovieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCell.swift; sourceTree = "<group>"; };
 		9A2676842CE60342003967FD /* AppEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEnvironment.swift; sourceTree = "<group>"; };
 		9A2676872CE6036D003967FD /* MoviesEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesEndpoint.swift; sourceTree = "<group>"; };
+		9A2676892CE7246A003967FD /* MoviesListViewController+SearcBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MoviesListViewController+SearcBar.swift"; sourceTree = "<group>"; };
+		9A26768B2CE724C2003967FD /* MoviesListViewContoller+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MoviesListViewContoller+TableView.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,6 +187,8 @@
 				9A2676702CE5FB86003967FD /* MoviesCoordinator.swift */,
 				9A2676752CE5FBE1003967FD /* MoviesListViewModel.swift */,
 				9A2676772CE5FBF1003967FD /* MoviesListViewController.swift */,
+				9A2676892CE7246A003967FD /* MoviesListViewController+SearcBar.swift */,
+				9A26768B2CE724C2003967FD /* MoviesListViewContoller+TableView.swift */,
 			);
 			path = MoviesList;
 			sourceTree = "<group>";
@@ -367,6 +373,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A26768A2CE7246A003967FD /* MoviesListViewController+SearcBar.swift in Sources */,
 				9A2676832CE5FE21003967FD /* MovieCell.swift in Sources */,
 				9A2676742CE5FBB9003967FD /* MovieDetailsCoordinator.swift in Sources */,
 				9A26766C2CE5FB42003967FD /* Coordinator.swift in Sources */,
@@ -378,6 +385,7 @@
 				9A26767E2CE5FC76003967FD /* APIServiceProtocol.swift in Sources */,
 				9A2676852CE60342003967FD /* AppEnvironment.swift in Sources */,
 				9A2676372CE5F67E003967FD /* AppDelegate.swift in Sources */,
+				9A26768C2CE724C2003967FD /* MoviesListViewContoller+TableView.swift in Sources */,
 				9A2676392CE5F67E003967FD /* SceneDelegate.swift in Sources */,
 				9A2676762CE5FBE1003967FD /* MoviesListViewModel.swift in Sources */,
 				9A2676802CE5FC8A003967FD /* APIClient.swift in Sources */,
